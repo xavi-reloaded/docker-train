@@ -1,0 +1,11 @@
+service:
+  build: ../
+  command: /app/scripts/utils/app-runner.sh
+  ports:
+    - 9000:9000
+  links:
+    - "mongo:mongo.service"
+
+mongo:
+  image: mongo:3
+  command: mongod --noprealloc --noscripting --nojournal --nohttpinterface --noauth
